@@ -15,16 +15,15 @@ export const SocketContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (authUser) {
-			const socket = io("https://chat-app-7jlg.onrender.com/login",{
-				query:{
-					userId:authUser._id
-
-				}
+			const socket = io("https://chat-app-yt.onrender.com", {
+				query: {
+					userId: authUser._id,
+				},
 			});
 
 			setSocket(socket);
 
-			//socket.on() is used to listen to the events. can be used both on client and server side
+			// socket.on() is used to listen to the events. can be used both on client and server side
 			socket.on("getOnlineUsers", (users) => {
 				setOnlineUsers(users);
 			});
